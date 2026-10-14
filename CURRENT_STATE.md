@@ -9,36 +9,42 @@ Goal: Audit what AI tools can extract from a webpage, whether it appears in sear
 ## Status
 
 Phase 0 — Completed.
-Shared foundation, contracts, and mocks established and verified.
-Parallel worktrees — Not yet created (to be created in Phase 1).
+Phase 1A (Worktree A / `feat/evidence`) — Completed and verified.
+Phase 1B (Worktree B / `feat/report`) — In progress / parallel.
 
-## Architecture
+## Architecture & Worktree A Modules
 
 - `schemas.py`: Shared data contracts (`FetchResult`, `SearchHit`, `SearchResult`, `Finding`, `AuditReport`).
-- `mocks/`: Deterministic test fixtures for fetch and search (`fetch_good.json`, `fetch_js_heavy.json`, `search_found.json`, `search_not_found.json`).
-- `requirements.txt`: Minimal dependencies (`requests`, `beautifulsoup4`, `streamlit`, `python-dotenv`).
-- `.env.example`: Template for configuration.
-- Worktree A (`feat/evidence`): TinyFish Search/Fetch, raw HTML comparison, evidence collection.
-- Worktree B (`feat/report`): Analysis, fixes, Streamlit UI.
-- `pipeline.py`: Integrates both workstreams after merging (Phase 2).
+- `tinyfish_client.py`: Thin authenticated client wrapper for TinyFish Search & Fetch with retries and timeout handling.
+- `raw_compare.py`: Text comparison engine identifying `missing_from_extraction` and `only_in_extraction`.
+- `fetch_module.py`: `get_fetch_result(url)` combining raw HTTP GET analysis and TinyFish markdown/link extraction.
+- `search_module.py`: `get_search_result(url, query, fetch)` with query derivation, URL normalization, and page rank detection.
+- `test_evidence.py`: Contract verification test suite running against real URLs.
 
 ## Verified Progress & Test Results
 
-- Consulted official TinyFish Search and Fetch API specifications and OpenAPI schemas:
-  - Search: `GET https://api.search.tinyfish.ai` returning `{query, total_results, page, results: [{position, site_name, title, snippet, url}]}`.
-  - Fetch: `POST https://api.fetch.tinyfish.ai` returning `{results: [{url, final_url, title, description, language, format, text, links}], errors: [...]}`.
-- Implemented `schemas.py` matching plan data contracts with `to_dict` and `from_dict` helpers.
-- Created all 4 mock datasets in `mocks/` conforming to `FetchResult` and `SearchResult` schemas.
-- Created `requirements.txt`, `.env.example`, and updated `.gitignore` for `.env` and `.venv`.
-- Created `samples/urls.txt` with representative target URLs for demo scenarios.
-- Ran validation test with Python 3.13: verified `schemas.py` imports, mock JSON parsing, dataclass mapping, and `AuditReport` serialization.
+- Implemented `tinyfish_client.py` with `tf_fetch` and `tf_search`, supporting auth headers (`X-API-Key`), timeout, 1-retry fallback, and clean error dictionaries without credential exposure.
+- Implemented `raw_compare.py` with text chunking, punctuation/markdown normalization, and capped gap detection.
+- Implemented `fetch_module.py` adhering to `FetchResult` schema:
+  - Raw HTML metadata: status, title, meta description, canonical, robots meta, JSON-LD blocks, image counts, missing alt counts, raw word count.
+  - TinyFish extracted data: markdown text, word count, markdown headings (`[{"level": int, "text": str}]`), structured links (`[{"text": str, "href": str}]`).
+  - Graceful degradation on network/DNS errors without crashing.
+- Implemented `search_module.py` adhering to `SearchResult` schema:
+  - Smart query derivation from title / H1 / URL slug when no query is supplied.
+  - Normalized URL matching (stripping protocol, `www.`, trailing slash, fragments, queries).
+  - Page rank detection and top competitor hit extraction.
+- Tested `test_evidence.py` against live URLs:
+  - `https://danluu.com` ("Dan Luu"): Fetch 200, raw 1434 words vs extracted 1428 words, 210 links, 15 missing / 15 only in extraction, Search rank #1.
+  - `https://example.com` ("Example Domain"): Fetch 200, raw 25 words vs extracted 25 words, 0 gaps, Search rank #1.
+  - `https://docs.github.com/en/get-started`: Fetch 200, raw 801 words vs extracted 354 words, 15 headings, 126 links, 11 missing items, derived query "Get started with GitHub documentation", Search rank #1.
+- All schema assertions and `to_dict` / `from_dict` roundtrips validated successfully.
 
 ## Blockers & API Connectivity
 
-- Real API smoke test was deferred because `TINYFISH_API_KEY` is not yet populated in `.env` (environment file prepared for user to add API key).
-- No blockers for Phase 1 parallel development against contracts and mock fixtures.
+- Live TinyFish API connectivity verified successfully with active API key.
+- No blockers for Worktree A.
 
 ## Next Action
 
-1. User adds `TINYFISH_API_KEY` into `.env`.
-2. Create parallel worktrees (`../seo-A` on `feat/evidence` and `../seo-B` on `feat/report`) and proceed with Phase 1.
+1. Await completion of Phase 1B (`feat/report`).
+2. Merge `feat/evidence` and `feat/report` into `main` for Phase 2 Shared Integration (`pipeline.py`).
