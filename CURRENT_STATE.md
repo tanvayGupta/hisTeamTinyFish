@@ -24,8 +24,8 @@ SEO Page Auditor — TinyFish × DTU workshop.
 
 - Live testing covered one public URL and one query only; search ranking can vary by query and time.
 - The existing `.gitignore` has a separate unstaged local change. It was preserved and is not part of the integration commit.
-- Commit and push are pending.
+- Integration commit `f743e89` was pushed to `origin/main` with a normal fast-forward push.
 
 ## Next Action
 
-Commit the integration files and this state update on `main`, then push to the existing `origin/main` without rewriting history.
+The Phase 2 integration is complete. The separate `.gitignore` change remains unstaged and should be reviewed independently.
