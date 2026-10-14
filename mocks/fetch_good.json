@@ -1,0 +1,49 @@
+{
+  "url": "https://example.com/blog/understanding-ai-search",
+  "final_url": "https://example.com/blog/understanding-ai-search",
+  "status": 200,
+  "extracted_text": "# Understanding AI Search\n\nAI search tools rely on clean semantic HTML structure, headings, and discoverable text to index content. In this guide, we break down what crawlers extract and how to maximize visibility.\n\n## How Crawlers Index Content\nModern AI search crawlers analyze document headings, schema markup, and text hierarchy.\n\n## Key Recommendations\nUse semantic tags, add JSON-LD structured data, and ensure metadata is complete.",
+  "extracted_word_count": 58,
+  "headings": [
+    {
+      "level": 1,
+      "text": "Understanding AI Search"
+    },
+    {
+      "level": 2,
+      "text": "How Crawlers Index Content"
+    },
+    {
+      "level": 2,
+      "text": "Key Recommendations"
+    }
+  ],
+  "links": [
+    {
+      "text": "Documentation",
+      "href": "https://example.com/docs"
+    },
+    {
+      "text": "Developer API",
+      "href": "https://example.com/api"
+    }
+  ],
+  "raw_word_count": 60,
+  "raw_title": "Understanding AI Search: A Practical Guide for Modern Developers",
+  "meta_description": "Learn how AI search engines parse and index web content, and discover actionable best practices to optimize visibility.",
+  "canonical": "https://example.com/blog/understanding-ai-search",
+  "robots_meta": "index, follow",
+  "json_ld": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Understanding AI Search",
+      "author": "Tech Team"
+    }
+  ],
+  "images_total": 2,
+  "images_missing_alt": 0,
+  "missing_from_extraction": [],
+  "only_in_extraction": [],
+  "error": null
+}

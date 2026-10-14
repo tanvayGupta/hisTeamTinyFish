@@ -1,0 +1,46 @@
+{
+  "url": "https://app.example.com/analytics-platform",
+  "final_url": "https://app.example.com/analytics-platform",
+  "status": 200,
+  "extracted_text": "# Cloud Observability & Telemetry Platform\n\nModern cloud-native telemetry for microservices and distributed systems. Real-time distributed tracing, automated latency bottleneck detection, and cost intelligence dashboard.\n\n## Core Capabilities\nInstant trace analysis, metrics aggregation, and intelligent anomaly alerting across AWS, GCP, and Azure.\n\n## Deployment & Pricing\nGet started in minutes with our Helm chart or Docker container. Starter tier begins at $49/month with enterprise custom SLA plans.",
+  "extracted_word_count": 68,
+  "headings": [
+    {
+      "level": 1,
+      "text": "Cloud Observability & Telemetry Platform"
+    },
+    {
+      "level": 2,
+      "text": "Core Capabilities"
+    },
+    {
+      "level": 2,
+      "text": "Deployment & Pricing"
+    }
+  ],
+  "links": [
+    {
+      "text": "Start Free Trial",
+      "href": "https://app.example.com/signup"
+    },
+    {
+      "text": "Live Demo Dashboard",
+      "href": "https://app.example.com/demo"
+    }
+  ],
+  "raw_word_count": 18,
+  "raw_title": "App",
+  "meta_description": null,
+  "canonical": null,
+  "robots_meta": null,
+  "json_ld": [],
+  "images_total": 5,
+  "images_missing_alt": 4,
+  "missing_from_extraction": [],
+  "only_in_extraction": [
+    "Modern cloud-native telemetry for microservices and distributed systems.",
+    "Real-time distributed tracing, automated latency bottleneck detection, and cost intelligence dashboard.",
+    "Get started in minutes with our Helm chart or Docker container. Starter tier begins at $49/month."
+  ],
+  "error": null
+}

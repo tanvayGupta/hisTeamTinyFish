@@ -1,0 +1,15 @@
+# SEO Page Auditor - Sample Target Pages for Auditing and Demos
+# 1. JavaScript-heavy / Single Page Application
+https://app.postman.com
+
+# 2. Well-optimized article / content page
+https://stripe.com/blog/infrastructure
+
+# 3. Minimal / thin structure baseline
+https://example.com
+
+# 4. Technical documentation page
+https://docs.github.com/en/get-started
+
+# 5. Developer portfolio / showcase page
+https://danluu.com

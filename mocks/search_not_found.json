@@ -1,0 +1,33 @@
+{
+  "query": "cloud observability telemetry platform microservices",
+  "query_was_derived": true,
+  "page_rank": null,
+  "page_snippet": null,
+  "top_results": [
+    {
+      "rank": 1,
+      "title": "Datadog Cloud Monitoring, Tracing & APM",
+      "url": "https://www.datadoghq.com/product/apm",
+      "snippet": "End-to-end distributed tracing and performance metrics for microservice architectures."
+    },
+    {
+      "rank": 2,
+      "title": "Dynatrace Telemetry Intelligence Platform",
+      "url": "https://www.dynatrace.com/platform",
+      "snippet": "Automated observability with AI-assisted root cause analysis across complex multi-cloud ecosystems."
+    },
+    {
+      "rank": 3,
+      "title": "OpenTelemetry Documentation and Architecture",
+      "url": "https://opentelemetry.io/docs",
+      "snippet": "Vendor-neutral open standard for collecting distributed metrics, logs, and traces."
+    },
+    {
+      "rank": 4,
+      "title": "Grafana Cloud: Metrics, Logs, Traces in One Place",
+      "url": "https://grafana.com/products/cloud",
+      "snippet": "Composable observability stack powered by Prometheus, Loki, and Tempo."
+    }
+  ],
+  "error": null
+}

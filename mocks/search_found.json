@@ -1,0 +1,33 @@
+{
+  "query": "understanding ai search modern developers",
+  "query_was_derived": false,
+  "page_rank": 2,
+  "page_snippet": "Learn how AI search engines parse and index web content, and discover actionable best practices to optimize visibility.",
+  "top_results": [
+    {
+      "rank": 1,
+      "title": "Comprehensive Guide to AI Search Engines & Indexing",
+      "url": "https://industry-leader.com/guides/ai-search",
+      "snippet": "Detailed breakdown of next-generation retrieval engines, vector embeddings, and web crawler behavior."
+    },
+    {
+      "rank": 2,
+      "title": "Understanding AI Search: A Practical Guide for Modern Developers",
+      "url": "https://example.com/blog/understanding-ai-search",
+      "snippet": "Learn how AI search engines parse and index web content, and discover actionable best practices to optimize visibility."
+    },
+    {
+      "rank": 3,
+      "title": "Optimizing Web Architecture for Agentic Search",
+      "url": "https://techportal.org/agentic-web-search",
+      "snippet": "How autonomous coding agents and LLM search systems fetch and synthesize live internet data."
+    },
+    {
+      "rank": 4,
+      "title": "Semantic HTML and SEO for Modern Crawlers",
+      "url": "https://devstandards.org/seo-semantics",
+      "snippet": "Standardizing web semantics to improve search rankings and machine-readable comprehension."
+    }
+  ],
+  "error": null
+}
